@@ -12,8 +12,8 @@ clear all
 % パラメータ
 ch_numbers = [1 2 3];
 period_fetch_secs = .2; % period_fetch_secs [sec] 毎に信号を取得
-period_plot_secs = .5; % period_plot_secs [sec] 毎に信号をプロット
-duration_plot_secs = 10; % plotする信号長 [sec]
+period_plot_secs = .1; % period_plot_secs [sec] 毎に信号をプロット
+duration_plot_secs = 5; % plotする信号長 [sec]
 period_classify_secs = 1; % period_classify_secs [sec] 毎に信号をプロット
 duration_classify_secs = 3; % classifyする信号長 [sec]
 gain = 1000; %gain
@@ -37,7 +37,7 @@ plot_obj.sampling_freq = sampling_freq;
 plot_obj.filter.b = b;
 plot_obj.filter.a = a;
 plot_obj.filter.zf = [];
-plot_obj.filter.n_cut_samples = sampling_freq*1;
+plot_obj.filter.n_cut_samples = sampling_freq*5;
 plot_obj.duration_n = duration_plot_n;
 plot_timer = timer('ExecutionMode', 'fixedRate', 'TimerFcn', 'plot_obj = plot_signal(data, plot_obj);', 'Period', period_plot_secs);
 
